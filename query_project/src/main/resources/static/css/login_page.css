@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+body {
+    background: linear-gradient(to right, #000000, #ffffff);
+    background-size: cover;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}

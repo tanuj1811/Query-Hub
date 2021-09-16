@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+    <title>this is login page</title>
+</head>
+
+<body>
+    <section>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="sign-up mt-3">
+
+                        <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert">
+                            <p th:text="${ session.message.content}"></p>
+                            <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+
+                        </div>
+
+                        <img style=" width: 100px; " src="" th:src="@{/img/download.png}" alt="rigister image">
+                        <h1 class="hn">Join us</h1>
+
+
+                        <form action="" th:action="@{/do_register}" method="POST" th:object="${user}">
+
+                            <!-- name tag  -->
+
+                            <div class="form-group">
+
+
+                                <label for="name_field" class="form-label">Name</label>
+                                <input name="name" type="text" class="form-control" th:classappend="${#fields.hasErrors('name') ? 'is-invalid':''}" id="name_field" placeholder=">>Enter here" th:value="${user.name}" />
+
+                                <div class="invalid-feedback" th:each="e : ${#fields.errors('name')}" th:text="${e.message}">
+
+                                </div>
+                                <div id="name_field" class="form-text">Enter your Name</div>
+
+                            </div>
+
+
+
+
+
+
+
+                            <!-- email tag -->
+
+                            <div class="mb-3">
+                                <label for="email_field" class="form-label">Email address</label>
+                                <input name="email" type="email" class="form-control" id="email" required th:value="${user.email}">
+
+
+
+
+
+                                <div id="email" class="form-text">Enter Your Active Email Address</div>
+                            </div>
+
+
+                            <!-- passward tag -->
+
+                            <div class="mb-3">
+                                <label for="passward" class="form-label">Passward</label>
+                                <input name="passward" type="passward" class="form-control" id="passward" required>
+
+                            </div>
+                            <!-- checkbox terms and comdition  -->
+                            <div>
+                                <input type="checkbox" name="agreement" class="form-check-input" id="agreement" required>
+                                <label for="agreement">Terms and Conditions</label><br>
+                            </div>
+
+                            <div style="padding: 4%;" class="container text-center">
+                                <button type="submit" class="btn btn-primary">Sign-up</button>
+                                <button type="reset" class="btn btn-warning">Reset</button>
+                            </div>
+
+
+
+
+
+                        </form>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

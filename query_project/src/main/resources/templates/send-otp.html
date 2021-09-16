@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>this is about page</title>
+</head>
+
+<body>
+    <section>
+        <div class="container justify-content-center">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card" style="justify-content: center;">
+
+                        <form id="forget-password-form" class="box" th:action="@{/forgetpassword/generateOTP}" action="#" method="post">
+                            <!-- message -->
+                            <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert">
+                                <p th:text="${ session.message.content}"></p>
+                                <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+
+                            </div>
+                            <!-- session message ends here -->
+                            <h1>Verification</h1>
+
+
+                            <div>
+                                <p class="text-muted"> Please enter your OTP</p>
+                                <input type="number" id="otp" name="id" placeholder="Get from your email" autofocus>
+
+                                <a class="sign text-muted" href="#">Didn't Get?</a>
+
+                            </div>
+
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Get Password!</button>
+
+                            <!-- <div class="col-md-12">
+                                <ul class="social-network social-circle">
+                                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" class="icoLinkedin" title="Liknedin"><i class="fab fa-linkedin"></i></a></li>
+                                </ul>
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

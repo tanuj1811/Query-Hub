@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+/* navbar css */
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        display: none;
+        width: 80%!important;
+        background: #a2d5c6ea;
+        height: 100vh;
+        position: absolute;
+        padding-top: 20px;
+    }
+    .content {
+        margin-left: 0%!important;
+    }
+}
+
+body {
+    background: snow;
+    position: relative;
+    font-family: 'Numans', sans-serif;
+}
+
+.backcolor {
+    background: #ffe5e9;
+}
+
+.logo {
+    color: orangered;
+    font-size: 30px;
+    font-family: cursive;
+    font-weight: 5050;
+}
+
+.navbar-links {
+    font-size: 20px;
+    font-weight: 500;
+    font-display: unset;
+}
+
+.navbar-body {
+    background: #a2d5c6!important;
+}
+
+.navbar-expand-sm {
+    height: 5%;
+}
+
+.navbar-brand {
+    padding-left: 50px;
+}
+
+
+/* for search bar */
+
+.search-result {
+    position: absolute;
+    background: snow;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    display: none;
+    /*margin-left: 15px;*/
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
+    /*float: right;*/
+    right: 0;
+}
+
+.search-container {
+    position: relative;
+    width: 60%;
+}
+
+
+/* temporay */
+
+
+/* t */
+
+header {
+    text-align: center;
+}
+
+nav {
+    color: #717171;
+    text-transform: uppercase;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    padding-bottom: 1.5em;
+}
+
+nav a {
+    color: orangered;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #1792d2;
+}
+
+
+/* navbar css ends herw  */
+
+
+/* sidebar css */
+
+.sidebar {
+    width: 18%;
+    border-style: groove;
+    background: #a2d5c6ea;
+    height: 100%;
+    position: fixed;
+    padding-top: 40px;
+    z-index: 99999999999999999999999999;
+}
+
+.sidebar a {
+    font-size: 15px;
+    display: block;
+    width: 100%;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: orangered;
+}
+
+.sidebar a:hover {
+    background: #e2e2e2;
+}
+
+.content {
+    margin-left: 19%;
+}
+
+
+/* sidebar css ends here */
+
+.dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: auto;
+    outline: none;
+}
+
+.dropdown-btn:hover {
+    color: #f1f1f1;
+}
+
+.dropdown-container {
+    display: none;
+    background-color: #a2d5c6c9;
+    padding-left: 8px;
+}
+
+
+/* Optional: Style the caret down icon */
+
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+.sidebar-heading {
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.sidebar .crossBtn {
+    position: absolute;
+    top: 0;
+    right: 35px;
+    font-size: 36px;
+    cursor: auto;
+}
+
+.content .sidebar-toggleIcon {
+    cursor: pointer;
+}
+
+.pading {
+    padding: 10px;
+}
+
+.invalid-feedback {
+    font-size: 10px;
+    font-weight: 200;
+    text-align: left;
+}
+
+.comment_body {
+    float: right;
+    width: 30%;
+}
+
+.comment-toggle {
+    float: right;
+    margin-left: 1150px;
+}
+
+.your-answer {
+    font-size: large;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+/* answer css */
+
+ul.social-network li {
+    display: inline;
+    margin: 0 5px
+}
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0
+}
+
+.social-network a.icoFacebook:hover {
+    background-color: #3B5998
+}
+
+.social-network a.icoTwitter:hover {
+    background-color: #33ccff
+}
+
+.social-network a.icoLinkedin:hover {
+    background-color: red
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoLinkedin:hover i {
+    color: black
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+    color: #44BCDD
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+    transform: rotate(360deg);
+    transition: all 0.2s
+}
+
+.social-circle i {
+    color: black;
+    transition: all 0.8s;
+    transition: all 0.8s
+}
+
+
+/* temp css for profile */
+
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col,
+.gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.mb-3,
+.my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+
+.h-100 {
+    height: 100%!important;
+}
+
+.shadow-none {
+    box-shadow: none!important;
+}
+
+
+/*  */
+
+.shadow {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.profile-tab-nav {
+    min-width: 250px;
+}
+
+.tab-content {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.nav-pills a.nav-link {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    color: #333;
+}
+
+.nav-pills a.nav-link i {
+    width: 20px;
+}
+
+.img-circle img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    border: 5px solid #fff;
+}

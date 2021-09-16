@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+
+<head>
+    <title>this is home page</title>
+</head>
+
+<body>
+    <section>
+        <h1>Ask Your Query </h1>
+        <div class="card backcolor mr-5">
+
+            <div class="card-body">
+
+
+
+                <div class="container-fluid mt-1">
+
+                    <div class="row">
+
+                        <div class="col-md-8 offset-md-2">
+                            <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert">
+                                <p th:text="${ session.message.content}"></p>
+                                <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+
+                            </div>
+                            <form action="#" th:object="${query}" enctype="multipart/form-data" method="POST" th:action="@{/user/process-contact}" class="mt-2">
+                                <!-- tile field  -->
+                                <div>
+                                    <label for="inputTitle">Title</label>
+                                    <input name="title" type="text" class="form-control" id="titleofquery" placeholder="Be specific and imagine you’re asking a question to another person" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="invalid-feedback"> </div>
+                                </div>
+                                <!-- email field  -->
+                                <div>
+                                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email for notfication if you want!!" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid-feedback"> </div>
+                                </div>
+                                <!-- description -->
+                                <div class="form-group mt-3">
+                                    <label for="inputdetail" class="col-sm-2 col-form-label">Detail</label>
+                                    <textarea name="detail" id="mytextarea" class="form-control" cols="50" rows="20" placeholder="Include all the information someone would need to answer your question"></textarea>
+
+                                </div>
+                                <!-- image field  -->
+                                <div class="custom-file">
+                                    <label for="image button" class="col-sm-2 col-form-label">Have Image?</label>
+                                    <input name="imgURL" type="file" class="custom-file-input pading" id="customFile" placeholder="Select Image">
+                                    <label for="image button" class="col-sm-2 col-form-label">(upto 5MB only)</label>
+                                </div>
+                                <div class="container text-center">
+                                    <button name="imgURL " class="btn btn-outline-primary">Post Query</button>
+                                </div>
+
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- adding tinymce  -->
+
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <link rel="stylesheet" type="text/css" href="prism.css">
+        <script src="prism.js"></script>
+        <pre class="language-markup"><code></code></pre>
+        <script src="prism.js" data-manual></script>
+        <script src="tinymce.js"></script>
+
+
+        <script>
+            tinymce.init({
+                selector: '#mytextarea', // change this value according to your HTML
+                plugins: 'codesample',
+                toolbar: 'codesample'
+            });
+        </script>
+
+        <!-- tinymce -->
+
+
+
+    </section>
+</body>
+
+</html>

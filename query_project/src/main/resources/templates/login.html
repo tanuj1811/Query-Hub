@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+    <title>this is login page</title>
+</head>
+
+<body>
+    <section>
+        <!-- this link for logo of facebook twitter and liknedin -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <form id="login-form" class="box" th:action="@{/signin}" action="#" method="post">
+                            <h1>Login</h1>
+
+                            <div th:if="${param.error}" class="alert alert-danger">
+                                Invalid Credentials
+                            </div>
+
+                            <div th:if="${param.logout}" class="alert alert-success">
+                                Successfully Logged Out!!
+                            </div>
+
+                            <div>
+                                <p class="text-muted"> Please enter your login and password!</p>
+                                <input type="text" id="username" name="username" placeholder="Username" autofocus>
+                                <input type="password" id="password" name="password" placeholder="Password">
+                                <a class="forgot text-muted" style="padding-right: 10px;" href="/forgetpassword">Forgot password?</a>
+                                <a class="sign text-muted" href="/signup">Don't have account?</a>
+
+                            </div>
+
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+
+                            <div class="col-md-12">
+                                <ul class="social-network social-circle">
+                                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" class="icoLinkedin" title="Liknedin"><i class="fab fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

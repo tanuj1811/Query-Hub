@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+
+<head>
+    <title th:title="${title}">this is home page</title>
+</head>
+
+<body>
+    <section>
+        <!-- awsome fonts -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+        <p>this is Query w.r.t QueryId</p>
+        <!-- showing wht is question -->
+        <div class="card">
+            <div class="card-body">
+
+                <div class="col-md-12">
+                    <ul class="social-network social-circle" style="float: right;">
+                        <li><a href="#" data-toggle="collapse" data-target="#commentSection" aria-expanded="false" aria-controls="collapseExample" class="icoFacebook" title="comments"><i class="far fa-comments"></i></a></li>
+                        <span th:if="${query.queryEmail} == ${user.email}">
+                            <li><a href="#" th:href="@{'/user/query/'+${query.queryId}+'/edit'}" class="icoTwitter" title="edit"><i class="far fa-edit"></i></a></li>
+                            <li><a href="#" th:href="@{'/user/query/'+${query.queryId}+'/delete'}" class="icoLinkedin" title="delete"><i class="fas fa-trash"></i></a></li>
+                        </span>
+                    </ul>
+                </div>
+
+
+                <h1 th:text="${query.title}"></h1>
+                <div class="details">
+                    <th:block th:utext="${query.detail}"></th:block>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- all comments -->
+        <div style="padding-top: 25px; padding-right: 10px;">
+
+            <div class="card comment_body collapse" id="commentSection">
+                <div class="card-body">
+                    <!-- showing all comments -->
+                    <div th:each="c : ${comments}">
+
+
+                        <p style="color:gray" th:text="${c.commentData} + '  ~ ' + ${c.commentName}"></p>
+
+                        <span th:if="${c.commentEmail} == ${user.email}">
+                             <a th:href="'/user/query/'+${query.queryId}+'/delete/comment/'+${c.commentId}"  class="btn btn-danger btn-sm">delete</a>
+                        </span>
+
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- all comment ends here -->
+
+        <!-- showing answer -->
+
+        <div class="card" style="width: 69%;">
+            <div class="card-body">
+                this is all answer
+                <div th:each="a : ${answers}">
+                    <div class="card" style="width: 800px; height: auto;">
+                        <div class="card-body">
+                            <th:block th:utext="${a.content}"></th:block>
+                            <p style="float: right;" th:text="'Posted at : ' + ${a.createdAt}  + ' by ~' + ${a.ansName}"></p>
+                        </div>
+                    </div>
+                    <!-- features in answer -->
+                    <div class="col-md-12">
+                        <span th:if="${a.ansEmail} == ${user.email}">
+                            <ul class="social-network social-circle" style="float: right;">
+                                <!-- <li><a href="#" data-toggle="collapse" data-target="#answerCommentSection" aria-expanded="false" aria-controls="collapseExample" class="icoFacebook" title="comments"><i class="far fa-comments"></i></a></li> -->
+                                <li><a href="#" class="icoTwitter" title="edit"><i class="far fa-edit"></i></a></li>
+                                <li><a href="#" th:href="'/user/query/'+${query.queryId}+'/delete/answer/'+${a.ansID}" class="icoLinkedin" title="delete"><i class="fas fa-trash"></i></a></li>
+                            </ul>
+                        </span>
+
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- answer ends here -->
+
+        <!--comment box  -->
+        <form action="#" th:object="${comment}" method="POST" th:action="@{'/user/query/commentProcessing/'+${query.queryId}}" class="mt-2">
+
+            <textarea name="commentData" style="width: 800px; height: 50px;" placeholder="Add a comment" class="form-control"></textarea>
+
+            <div class="container" style="float: left; padding-top: 5px;">
+                <button class="btn btn-outline-primary">add </button>
+            </div>
+        </form>
+        <!--  -->
+
+        <!-- answer column -->
+        <form action="#" th:object="${answer}" method="POST" th:action="@{'/user/query/answerProcessing/'+${query.queryId}}" class="mt-2">
+
+            <Label class="your-answer">YOUR ANSWER</Label>
+            <textarea name="content" id="mytextarea" class="form-control " style="width: 800px; height: 150px;" placeholder="Include all the information "></textarea>
+            <div class="container" style="float: left; padding-top: 5px;">
+                <button class="btn btn-primary">Post Answer </button>
+            </div>
+        </form>
+        <!-- answer column ends here  -->
+
+        <!-- comment in answer -->
+
+        <!-- comment in answer ends here -->
+
+
+        <!-- adding tinymce  -->
+
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <link rel="stylesheet" type="text/css" href="prism.css">
+        <script src="prism.js"></script>
+        <pre class="language-markup"><code></code></pre>
+        <script src="prism.js" data-manual></script>
+        <script src="tinymce.js"></script>
+
+
+        <script>
+            tinymce.init({
+                selector: '#mytextarea', // change this value according to your HTML
+                plugins: 'codesample',
+                toolbar: 'codesample'
+            });
+        </script>
+
+        <!-- tinymce -->
+    </section>
+
+
+
+
+</body>
+
+</html>
